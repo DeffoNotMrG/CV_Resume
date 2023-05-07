@@ -113,6 +113,7 @@ p {
   max-height: 100px;
   transition: max-height 0.3s ease;
   position: relative;
+  animation: slide-in 1s ease forwards;
 }
 
 .block::after {
@@ -124,6 +125,84 @@ p {
   height: 50px;
   background-image: linear-gradient(to top, rgba(255, 255, 255, 10), transparent);
 }
+
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.block:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.block:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.block:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.block:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+
+.scrolling-text {
+  position: relative;
+  height: 1.6em; /* Adjust this value according to your font size and line-height */
+  overflow: hidden;
+}
+
+.scrolling-text span {
+  position: absolute;
+  opacity: 0;
+  animation: sliding-text 12s ease infinite;
+}
+
+@keyframes sliding-text {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  5%, 16.66% { /* 100% / 6 text items */
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  21.66%, 100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+
+.scrolling-text span:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.scrolling-text span:nth-child(3) {
+  animation-delay: 4s;
+}
+
+.scrolling-text span:nth-child(4) {
+  animation-delay: 6s;
+}
+
+.scrolling-text span:nth-child(5) {
+  animation-delay: 8s;
+}
+
+.scrolling-text span:nth-child(6) {
+  animation-delay: 10s;
+}
+
 
 button#toggle-theme {
   padding: 6px 12px;
