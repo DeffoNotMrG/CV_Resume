@@ -34,7 +34,7 @@ header .profile {
 .profile-picture {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 2%;
   object-fit: cover;
   margin-right: 15px;
 }
@@ -80,17 +80,6 @@ p {
   margin-bottom: 40px;
 }
 
-.block {
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-  max-height: 100px;
-  transition: max-height 0.3s ease;
-}
-
 .read-more {
   position: absolute;
   bottom: 20px;
@@ -102,10 +91,38 @@ p {
   padding: 2px 8px;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 1;
 }
+
 
 .read-more:focus {
   outline: none;
+}
+
+.dark-mode .block::after {
+  background-image: linear-gradient(to top, rgba(68, 68, 68, 10), transparent);
+}
+
+.block {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  max-height: 100px;
+  transition: max-height 0.3s ease;
+  position: relative;
+}
+
+.block::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 10), transparent);
 }
 
 button#toggle-theme {
